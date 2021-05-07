@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import firebase from "firebase/app";
 
 function Header() {
+  const user = firebase.auth().currentUser;
   const history = useHistory();
   function doSignOut() {
     firebase.auth().signOut().then(function() {
@@ -18,9 +19,9 @@ function Header() {
       <Navbar.Brand href="/">Intervals Ear Training</Navbar.Brand>
       <Nav>
         <Nav.Link><Link to="/cards">Flash Cards</Link></Nav.Link>
-          <Nav.Link><Link to="/signup">Sign Up</Link></Nav.Link>
-          <Nav.Link><Link to="/signin">Sign In</Link></Nav.Link>
-          <Nav.Link><Link onClick={doSignOut} to="/">Sign Out</Link></Nav.Link>
+        <Nav.Link><Link to="/signup">Sign Up</Link></Nav.Link>
+        <Nav.Link><Link to="/signin">Sign In</Link></Nav.Link>
+        <Nav.Link><Link onClick={doSignOut} to="/">Sign Out</Link></Nav.Link>
       </Nav>
     </Navbar>
   )
