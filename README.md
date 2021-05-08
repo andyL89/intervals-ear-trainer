@@ -3,7 +3,7 @@ A React web app for studying musical intervals.
 
 ### _**Andy Lawson**_
 
-[Epicodus](https://www.epicodus.com/) - [React](https://www.learnhowtoprogram.com/react) - [React with Redux](https://www.learnhowtoprogram.com/react/react-with-redux)
+[Epicodus](https://www.epicodus.com/) - [Independent Capstone Projects](https://www.learnhowtoprogram.com/react/independent-capstone-projects)
 
 
 #### Date created: 05/7/2021-Present
@@ -24,7 +24,7 @@ A React web app for studying musical intervals.
 ## User Stories
 
 * As a user, I want to hear a specific interval when I click a flash card.
-* As a user I want to test my skills by taking a multiple choice quiz in which I listen to a random interval and then guess what interval it was.
+* As a user I want to test my skills by taking a multiple choice quiz with random intervals.
 
 ## Component Diagram
 Diagram showing parent and children components and how they will be structured in relation to one another:

@@ -16,6 +16,7 @@ import majSixth from '../img/major-sixth.png';
 import minSeventh from '../img/minor-seventh.png';
 import majSeventh from '../img/major-seventh.png';
 import octave from '../img/octave.jpeg';
+import semitone from '../audios/Minor_second_on_C.mid';
 
 const CardGrid = styled.div`
   display: flex;
