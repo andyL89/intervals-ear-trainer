@@ -1,9 +1,7 @@
 import React from "react";
-// import FlashCard from "./FlashCard";
-// import PropTypes from "prop-types";
-// import { useSelector } from 'react-redux';
-import firebase from "firebase/app";
 import styled from 'styled-components';
+import firebase from "firebase/app";
+import useSound from 'use-sound';
 import halfStep from '../img/half-step.png';
 import wholeStep from '../img/whole-step.png';
 import minThird from '../img/minor-third.png';
@@ -16,7 +14,7 @@ import majSixth from '../img/major-sixth.png';
 import minSeventh from '../img/minor-seventh.png';
 import majSeventh from '../img/major-seventh.png';
 import octave from '../img/octave.jpeg';
-import semitone from '../audios/Minor_second_on_C.mid';
+import intervalsC from '../audios/intervalsC.mp3';
 
 const CardGrid = styled.div`
   display: flex;
@@ -28,6 +26,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content:center;
+  align-items: center;
   padding-bottom: 10px;
   height: 13vw;
   border: 2px solid black;
@@ -50,23 +49,39 @@ const Card = styled.div`
 
 function FlashCards(){
   const user = firebase.auth().currentUser;
+  const [play] = useSound(intervalsC, {
+    sprite: {
+      half: [0, 3000],
+      whole: [5300, 3500],
+      min3rd: [10600, 3500],
+      maj3rd: [16000, 3500],
+      perf4th: [21300, 3500],
+      tri: [26600, 3500],
+      perf5th: [32000, 3500],
+      aug5th: [37300, 3500],
+      maj6th: [42600, 3500],
+      min7th: [48000, 3500],
+      maj7th: [53300, 3500],
+      octave: [58600, 3500]
+    }
+  });
   if (user) {
     return (
       <>
         <h2 style={{textAlign: 'center', paddingTop: '40px'}}>Click a card to hear an interval</h2>
         <CardGrid>
-          <Card><img src={halfStep} alt="half step"/>Half Step</Card>
-          <Card><img src={wholeStep} alt="whole step"/>Whole Step</Card>
-          <Card><img src={minThird} alt="minor 3rd"/>Minor 3rd</Card>
-          <Card><img src={majThird} alt="major 3rd"/>Major 3rd</Card>
-          <Card><img src={perfectFourth} alt="perfect 4th"/>Perfect 4th</Card>
-          <Card><img src={tritone} alt="tritone"/>Tritone</Card>
-          <Card><img src={perfectFifth} alt="perfect 5th"/>Perfect 5th</Card>
-          <Card><img src={augFifth} alt="augmented 5th"/>Augmented 5th</Card>
-          <Card><img src={majSixth} alt="major 6th"/>Major 6th</Card>
-          <Card><img src={minSeventh} alt="minor 7th"/>Minor 7th</Card>
-          <Card><img src={majSeventh} alt="major 7th"/>Major 7th</Card>
-          <Card><img src={octave} alt="octave"/>Perfect Octave</Card>
+          <Card onClick={() => play({ id: 'half' })}><img src={halfStep} alt="half step"/>Half Step</Card>
+          <Card onClick={() => play({ id: 'whole' })}><img src={wholeStep} alt="whole step"/>Whole Step</Card>
+          <Card onClick={() => play({ id: 'min3rd' })}><img src={minThird} alt="minor 3rd"/>Minor 3rd</Card>
+          <Card onClick={() => play({ id: 'maj3rd' })}><img src={majThird} alt="major 3rd"/>Major 3rd</Card>
+          <Card onClick={() => play({ id: 'perf4th' })}><img src={perfectFourth} alt="perfect 4th"/>Perfect 4th</Card>
+          <Card onClick={() => play({ id: 'tri' })}><img src={tritone} alt="tritone"/>Tritone</Card>
+          <Card onClick={() => play({ id: 'perf5th' })}><img src={perfectFifth} alt="perfect 5th"/>Perfect 5th</Card>
+          <Card onClick={() => play({ id: 'aug5th' })}><img src={augFifth} alt="augmented 5th"/>Augmented 5th</Card>
+          <Card onClick={() => play({ id: 'maj6th' })}><img src={majSixth} alt="major 6th"/>Major 6th</Card>
+          <Card onClick={() => play({ id: 'min7th' })}><img src={minSeventh} alt="minor 7th"/>Minor 7th</Card>
+          <Card onClick={() => play({ id: 'maj7th' })}><img src={majSeventh} alt="major 7th"/>Major 7th</Card>
+          <Card onClick={() => play({ id: 'octave' })}><img src={octave} alt="octave"/>Perfect Octave</Card>
         </CardGrid>
       </>
     );
