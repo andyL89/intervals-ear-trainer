@@ -1,6 +1,27 @@
 import React from "react";
 import firebase from "firebase/app";
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+
+const SignUpCard = styled.div`
+  margin: auto;
+  margin-top: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 11vw;
+    padding: 1vw;
+    input {
+      text-align: center;
+    }
+  }
+`
 
 function Signup(){
   const history = useHistory();
@@ -16,7 +37,7 @@ function Signup(){
     });
   }
   return (
-    <>
+    <SignUpCard>
       <h1>Sign up</h1>
       <form onSubmit={doSignUp} to="/">
         <input
@@ -29,7 +50,7 @@ function Signup(){
           placeholder='Password' />
         <button type='submit'>Sign up</button>
       </form>
-    </>
+    </SignUpCard>
   );
 }
 

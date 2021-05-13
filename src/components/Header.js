@@ -18,11 +18,11 @@ function Header() {
     <Navbar sticky= 'top' bg="dark" variant="dark" style={{display: 'flex', justifyContent: 'space-between', padding: '10px'}}>
       <Navbar.Brand href="/">Intervals Ear Training</Navbar.Brand>
       <Nav>
-        <Nav.Link><Link to="/quiz">Quiz</Link></Nav.Link>
-        <Nav.Link><Link to="/cards">Flash Cards</Link></Nav.Link>
-        <Nav.Link><Link to="/signup">Sign Up</Link></Nav.Link>
-        <Nav.Link><Link to="/signin">Sign In</Link></Nav.Link>
-        <Nav.Link><Link onClick={doSignOut} to="/">Sign Out</Link></Nav.Link>
+        <Nav.Link><Link id="signUp" to="/signup">Sign Up</Link></Nav.Link>
+        <Nav.Link><Link id="signIn" to="/signin">Sign In</Link></Nav.Link>
+        <Nav.Link><Link id="quiz" to="/quiz">Quiz</Link></Nav.Link>
+        <Nav.Link><Link id="cards" to="/cards">Flash Cards</Link></Nav.Link>
+        <Nav.Link><Link id="signOut" onClick={doSignOut} to="/">Sign Out</Link></Nav.Link>
       </Nav>
     </Navbar>
   )

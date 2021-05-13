@@ -68,7 +68,7 @@ function FlashCards(){
   if (user) {
     return (
       <>
-        <h2 style={{textAlign: 'center', paddingTop: '40px'}}>Click a card to hear an interval</h2>
+        <h2 style={{textAlign: 'center', paddingTop: '40px'}}>Click a card to hear the interval</h2>
         <CardGrid>
           <Card onClick={() => play({ id: 'half' })}><img src={halfStep} alt="half step"/>Half Step</Card>
           <Card onClick={() => play({ id: 'whole' })}><img src={wholeStep} alt="whole step"/>Whole Step</Card>
