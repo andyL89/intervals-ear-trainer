@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useHistory } from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 import firebase from "firebase/app";
 import BasicQuestions from '../json/basicQuestions';

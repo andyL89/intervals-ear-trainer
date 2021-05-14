@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import Header from './Header';
-import Signin from "./Signin";
-import Signup from "./Signup";
 import Home from './Home';
 import Quiz from './Quiz';
 import FlashCards from './FlashCards';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { UserContext } from './UserContext';
 
 function App() {
+  const [user, setUser] = useState('hello from context');
+  const value = useMemo(() => ({ user, setUser }), [user, setUser])
   return (
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/signin" component={Signin} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/quiz" component={Quiz} />
-        <Route exact path="/cards" component={FlashCards} />
+        <UserContext.Provider value={{ value }}>
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/quiz" component={Quiz} />
+          <Route exact path="/cards" component={FlashCards} />
+        </UserContext.Provider>
       </Switch>
     </Router>
   );
