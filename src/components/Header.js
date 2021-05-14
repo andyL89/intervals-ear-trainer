@@ -14,6 +14,7 @@ function Header() {
       console.log(error.message);
     });
   }
+  if (!user) {
   return(
     <Navbar sticky= 'top' bg="dark" variant="dark" style={{display: 'flex', justifyContent: 'space-between', padding: '10px'}}>
       <Navbar.Brand href="/">Intervals Ear Training</Navbar.Brand>
@@ -25,7 +26,7 @@ function Header() {
         <Nav.Link><Link id="signOut" onClick={doSignOut} to="/">Sign Out</Link></Nav.Link>
       </Nav>
     </Navbar>
-  )
+  )}
 }
 
 export default Header;

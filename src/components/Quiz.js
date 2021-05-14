@@ -16,6 +16,19 @@ const QuestionCard = styled.div`
   border: none;
   width: 50vw;
 `
+const Question = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  border: none;
+  width: 50vw;
+  button {
+    margin-top: 1vw;
+  }
+`
 
 const Quiz = () => {
   const user = firebase.auth().currentUser;
@@ -109,14 +122,14 @@ const Quiz = () => {
         <button id='startBtn' onClick={basicQuizStart}>Start Quiz</button>
         {startBasic ? (
           <>
-            <div>
+            <Question>
               {!quizReset ? (
                 <>
                   <h3 className='quiz-question-number'>
                     Q. {questionNum}
                   </h3>
                   <h2 className='quiz-question'>{question}</h2>
-                  <button onClick={() => play({ id: (interval) })}>Play</button>
+                  <button onClick={() => play({ id: (interval) })}>Listen</button>
                   <button
                     className='btn btn-primary game-buttons'
                     onClick={checkAnswer}
@@ -149,7 +162,7 @@ const Quiz = () => {
               ) : (
                 ''
               )}
-            </div>
+            </Question>
             <div>
               {quizReset ? (
                 <>
