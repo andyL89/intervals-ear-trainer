@@ -2,6 +2,8 @@ import React, { useState, useEffect, useHistory } from "react";
 import styled from 'styled-components';
 import firebase from "firebase/app";
 import BasicQuestions from '../json/basicQuestions';
+import useSound from 'use-sound';
+import halfStep from '../audios/half-step.mp3';
 
 const QuestionCard = styled.div`
   margin: auto;
@@ -16,6 +18,7 @@ const QuestionCard = styled.div`
 `
 
 const Quiz = () => {
+  const [play] = useSound(halfStep)
   const user = firebase.auth().currentUser;
   const [quizEdition, setQuizEdition] = useState('Basic');
   const [quizStart, setQuizStart] = useState(false);
@@ -27,12 +30,17 @@ const Quiz = () => {
   const [questionNum, setQuestionNum] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [question, setQuestion] = useState('');
+  const [interval, setInterval] = useState('');
   const [correct, setCorrect] = useState('');
   const [a1, setA1] = useState('');
   const [a2, setA2] = useState('');
   const [a3, setA3] = useState('');
   const [a4, setA4] = useState('');
 
+  const basicEdition = () => {
+    setQuizEdition('Basic');
+    setQuizStart(true);
+  };
   const startQuiz = () => {
     if (quizEdition === 'Basic') {
       basicQuizStart();
@@ -51,6 +59,7 @@ const Quiz = () => {
   const loadNewQuestion = () => {
     if (quizEdition === 'Basic') {
       setQuestion(BasicQuestions[questionNum].question);
+      setInterval(BasicQuestions[questionNum].interval);
       setA1(BasicQuestions[questionNum].a1);
       setA2(BasicQuestions[questionNum].a2);
       setA3(BasicQuestions[questionNum].a3);
@@ -92,6 +101,7 @@ const Quiz = () => {
                     Q. {questionNum}
                   </h3>
                   <h2 className='quiz-question'>{question}</h2>
+                  <button onClick={play}>Play</button>
                   <button
                     className='btn btn-primary game-buttons'
                     onClick={checkAnswer}
@@ -180,12 +190,7 @@ export default Quiz;
 //       a4: '',
 //     };
 
-//   basicEdition = e => {
-//     this.setState({
-//       quizEdition: 'Basic',
-//       quizStart: true
-//     });
-//   };
+  
 // render() {
 //   
 

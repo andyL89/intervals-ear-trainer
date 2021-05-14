@@ -1,6 +1,7 @@
 [
   {
     "question": "What interval is this?",
+    "interval": "../audios/half-step.mp3",
     "a1": "Half Step",
     "a2": "Minor Third",
     "a3": "Whole Step",
