@@ -3,7 +3,7 @@
     "question": "What interval is this?",
     "interval": "half",
     "a1": "Half Step",
-    "a2": "Minor Third",
+    "a2": "Minor 3rd",
     "a3": "Whole Step",
     "a4": "Perfect 4th",
     "correct": "1"
@@ -21,7 +21,7 @@
     "question": "What interval is this?",
     "interval": "min3rd",
     "a1": "Whole Step",
-    "a2": "Minor Third",
+    "a2": "Minor 3rd",
     "a3": "Major 7th",
     "a4": "Tritone",
     "correct": "2"
@@ -48,8 +48,8 @@
     "question": "What interval is this?",
     "interval": "whole",
     "a1": "Whole Step",
-    "a2": "Minor Third",
-    "a3": "Major Third",
+    "a2": "Minor 3rd",
+    "a3": "Major 3rd",
     "a4": "Half Step",
     "correct": "1"
   },
@@ -65,10 +65,46 @@
   {
     "question": "What interval is this?",
     "interval": "maj3rd",
-    "a1": "Minor Third",
-    "a2": "Major Third",
+    "a1": "Minor 3rd",
+    "a2": "Major 3rd",
     "a3": "Perfect 5th",
     "a4": "Major 6th",
     "correct": "2"
+  },
+  {
+    "question": "What interval is this?",
+    "interval": "maj7th",
+    "a1": "Tritone",
+    "a2": "Major 3rd",
+    "a3": "Major 7th",
+    "a4": "Major 6th",
+    "correct": "3"
+  },
+  {
+    "question": "What interval is this?",
+    "interval": "octave",
+    "a1": "Major 7th",
+    "a2": "Minor 7th",
+    "a3": "Octave",
+    "a4": "Perfect 5th",
+    "correct": "3"
+  },
+  {
+    "question": "What interval is this?",
+    "interval": "tri",
+    "a1": "Tritone",
+    "a2": "Perfect 5th",
+    "a3": "Augmented 5th",
+    "a4": "Minor 7th",
+    "correct": "1"
+  },
+  {
+    "question": "What interval is this?",
+    "interval": "min7th",
+    "a1": "Whole Step",
+    "a2": "Octave",
+    "a3": "Major 7th",
+    "a4": "Minor 7th",
+    "correct": "4"
   }
 ]
