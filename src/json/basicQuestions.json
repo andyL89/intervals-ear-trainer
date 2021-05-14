@@ -1,7 +1,7 @@
 [
   {
     "question": "What interval is this?",
-    "interval": "../audios/half-step.mp3",
+    "interval": "half",
     "a1": "Half Step",
     "a2": "Minor Third",
     "a3": "Whole Step",
@@ -10,6 +10,7 @@
   },
   {
     "question": "What interval is this?",
+    "interval": "perf5th",
     "a1": "Major 3rd",
     "a2": "Perfect 4th",
     "a3": "Perfect 5th",
@@ -18,6 +19,7 @@
   },
   {
     "question": "What interval is this?",
+    "interval": "min3rd",
     "a1": "Whole Step",
     "a2": "Minor Third",
     "a3": "Major 7th",
@@ -26,6 +28,7 @@
   },
   {
     "question": "What interval is this?",
+    "interval": "maj6th",
     "a1": "Augmented 5th",
     "a2": "Minor 7th",
     "a3": "Major 6th",
@@ -34,6 +37,7 @@
   },
   {
     "question": "What interval is this?",
+    "interval": "perf4th",
     "a1": "Major 7th",
     "a2": "Perfect 5th",
     "a3": "Tritone",
@@ -42,6 +46,7 @@
   },
   {
     "question": "What interval is this?",
+    "interval": "whole",
     "a1": "Whole Step",
     "a2": "Minor Third",
     "a3": "Major Third",
@@ -50,6 +55,7 @@
   },
   {
     "question": "What interval is this?",
+    "interval": "aug5th",
     "a1": "Octave",
     "a2": "Major 6th",
     "a3": "Perfect 5th",
@@ -58,6 +64,7 @@
   },
   {
     "question": "What interval is this?",
+    "interval": "maj3rd",
     "a1": "Minor Third",
     "a2": "Major Third",
     "a3": "Perfect 5th",

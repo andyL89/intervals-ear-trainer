@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import firebase from "firebase/app";
 import BasicQuestions from '../json/basicQuestions';
 import useSound from 'use-sound';
-import halfStep from '../audios/half-step.mp3';
+import intervalsC from '../audios/intervalsC.mp3';
 
 const QuestionCard = styled.div`
   margin: auto;
@@ -18,8 +18,23 @@ const QuestionCard = styled.div`
 `
 
 const Quiz = () => {
-  const [play] = useSound(halfStep)
   const user = firebase.auth().currentUser;
+  const [play] = useSound(intervalsC, {
+    sprite: {
+      half: [0, 3000],
+      whole: [5300, 3500],
+      min3rd: [10600, 3500],
+      maj3rd: [16000, 3500],
+      perf4th: [21300, 3500],
+      tri: [26600, 3500],
+      perf5th: [32000, 3500],
+      aug5th: [37300, 3500],
+      maj6th: [42600, 3500],
+      min7th: [48000, 3500],
+      maj7th: [53300, 3500],
+      octave: [58600, 3500]
+    }
+  });
   const [quizEdition, setQuizEdition] = useState('Basic');
   const [quizStart, setQuizStart] = useState(false);
   const [quizChoice, setQuizChoice] = useState(false);
@@ -101,7 +116,7 @@ const Quiz = () => {
                     Q. {questionNum}
                   </h3>
                   <h2 className='quiz-question'>{question}</h2>
-                  <button onClick={play}>Play</button>
+                  <button onClick={() => play({ id: (interval) })}>Play</button>
                   <button
                     className='btn btn-primary game-buttons'
                     onClick={checkAnswer}
@@ -169,28 +184,3 @@ const Quiz = () => {
 };
 
 export default Quiz;
-
-
-// class Quiz extends Component {
-//   state = {
-//       quizEdition: 'Basic',
-//       quizStart: false,
-//       quizChoice: false,
-//       initialQuizState: true,
-//       playerScore: 0,
-//       quizReset: false,
-//       startBasic: false,
-//       questionNum: 0,
-//       totalQuestions: 0,
-//       question: '',
-//       correct: '',
-//       a1: '',
-//       a2: '',
-//       a3: '',
-//       a4: '',
-//     };
-
-  
-// render() {
-//   
-
