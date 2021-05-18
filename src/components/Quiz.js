@@ -6,6 +6,7 @@ import ChordQuestions from '../json/chordQuestions';
 import IntChordQuestions from '../json/intermediateChordQuestions';
 import useSound from 'use-sound';
 import intervalsC from '../audios/intervalsC.mp3';
+import beginnerChords from '../audios/beginnerChords.mp3';
 
 const QuestionCard = styled.div`
   margin: auto;
@@ -50,7 +51,7 @@ const Quiz = () => {
 
   const user = firebase.auth().currentUser;
 
-  const [play] = useSound(intervalsC, {
+  const [playInt] = useSound(intervalsC, {
     sprite: {
       half: [0, 3000],
       whole: [5300, 3500],
@@ -64,6 +65,23 @@ const Quiz = () => {
       min7th: [48000, 3500],
       maj7th: [53300, 3500],
       octave: [58600, 3500]
+    }
+  });
+
+  const [playChord] = useSound(beginnerChords, {
+    sprite: {
+      major1: [0, 4000],
+      major2: [4780, 4000],
+      major3: [9580, 4000],
+      major4: [14380, 4000],
+      minor1: [19180, 4000],
+      minor2: [23900, 4000],
+      minor3: [28780, 4000],
+      minor4: [33580, 4000],
+      diminished1: [38380, 4000],
+      diminished2: [43190, 4000],
+      augmented1: [47900, 4000],
+      augmented2: [52780, 4000]
     }
   });
 
@@ -150,6 +168,7 @@ const Quiz = () => {
       setA4(IntervalQuestions[questionNum].a4);
       setCorrect(IntervalQuestions[questionNum].correct);
       setTotalQuestions(IntervalQuestions.length);
+
     } else if (quizEdition === 'beginnerChord') {
       setQuestion(ChordQuestions[questionNum].question);
       setInterval(ChordQuestions[questionNum].interval);
@@ -159,6 +178,7 @@ const Quiz = () => {
       setA4(ChordQuestions[questionNum].a4);
       setCorrect(ChordQuestions[questionNum].correct);
       setTotalQuestions(ChordQuestions.length);
+
     } else if (quizEdition === 'intermediateChord') {
       setQuestion(IntChordQuestions[questionNum].question);
       setInterval(IntChordQuestions[questionNum].interval);
@@ -212,7 +232,12 @@ const Quiz = () => {
                     Q. {questionNum}
                   </h3>
                   <h2 className='quiz-question'>{question}</h2>
-                  <button onClick={() => play({ id: (interval) })}>Listen</button>
+                  { quizEdition === 'interval' &&
+                    <button onClick={() => playInt({ id: (interval) })}>Listen</button>
+                  }
+                  { quizEdition === 'beginnerChord' &&
+                    <button onClick={() => playChord({ id: (interval) })}>Listen</button>
+                  }
                   <button
                     className='btn btn-primary game-buttons'
                     onClick={checkAnswer}

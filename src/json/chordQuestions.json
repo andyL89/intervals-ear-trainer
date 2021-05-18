@@ -1,7 +1,7 @@
 [
   {
     "question": "What chord is this?",
-    "interval": "major",
+    "interval": "major1",
     "a1": "Augmented",
     "a2": "Diminished",
     "a3": "Major",
@@ -10,7 +10,7 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "minor",
+    "interval": "minor1",
     "a1": "Minor",
     "a2": "Diminished",
     "a3": "Major",
@@ -19,7 +19,7 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "diminished",
+    "interval": "diminished1",
     "a1": "Major",
     "a2": "Minor",
     "a3": "Augmented",
@@ -28,16 +28,16 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "augmented",
-    "a1": "Augmented 5th",
-    "a2": "Minor 7th",
-    "a3": "Major 6th",
-    "a4": "Octave",
+    "interval": "augmented1",
+    "a1": "Minor",
+    "a2": "Augmented",
+    "a3": "Major",
+    "a4": "Diminished",
     "correct": "2"
   },
   {
     "question": "What chord is this?",
-    "interval": "major",
+    "interval": "major2",
     "a1": "Diminished",
     "a2": "Minor",
     "a3": "Augmented",
@@ -46,7 +46,7 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "diminished",
+    "interval": "diminished2",
     "a1": "Augmented",
     "a2": "Major",
     "a3": "Diminished",
@@ -55,7 +55,7 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "minor",
+    "interval": "minor2",
     "a1": "Minor",
     "a2": "Diminished",
     "a3": "Major",
@@ -64,7 +64,7 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "minor",
+    "interval": "minor3",
     "a1": "Major",
     "a2": "Minor",
     "a3": "Augmented",
@@ -73,7 +73,7 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "major",
+    "interval": "major3",
     "a1": "Major",
     "a2": "Augmented",
     "a3": "Diminished",
@@ -82,7 +82,7 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "augmented",
+    "interval": "augmented2",
     "a1": "Diminished",
     "a2": "Major",
     "a3": "Minor",
@@ -91,7 +91,7 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "major",
+    "interval": "major4",
     "a1": "Augmented",
     "a2": "Diminished",
     "a3": "Major",
@@ -100,11 +100,11 @@
   },
   {
     "question": "What chord is this?",
-    "interval": "augmented",
+    "interval": "minor4",
     "a1": "Major",
-    "a2": "Augmented",
-    "a3": "Diminished",
-    "a4": "Minor",
+    "a2": "Minor",
+    "a3": "Augmented",
+    "a4": "Diminished",
     "correct": "2"
   }
 ]
