@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import firebase from "firebase/app";
-import BasicQuestions from '../json/basicQuestions';
+import IntervalQuestions from '../json/intervalQuestions';
+import ChordQuestions from '../json/chordQuestions';
+import IntChordQuestions from '../json/intermediateChordQuestions';
 import useSound from 'use-sound';
 import intervalsC from '../audios/intervalsC.mp3';
 
@@ -15,6 +17,20 @@ const QuestionCard = styled.div`
   padding-bottom: 10px;
   border: none;
   width: 50vw;
+`
+const QuizChoice = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border: none;
+  width: 50vw;
+  button {
+    border-radius: 5px;
+    padding: 5px;
+  }
 `
 const Question = styled.div`
   margin: auto;
@@ -31,7 +47,9 @@ const Question = styled.div`
 `
 
 const Quiz = () => {
+
   const user = firebase.auth().currentUser;
+
   const [play] = useSound(intervalsC, {
     sprite: {
       half: [0, 3000],
@@ -48,13 +66,16 @@ const Quiz = () => {
       octave: [58600, 3500]
     }
   });
-  const [quizEdition, setQuizEdition] = useState('Basic');
+
+  const [quizEdition, setQuizEdition] = useState('');
   const [quizStart, setQuizStart] = useState(false);
   const [quizChoice, setQuizChoice] = useState(false);
   const [initialQuizState, setInitialQuizState] = useState(true);
   const [playerScore, setPlayerScore] = useState(0);
   const [quizReset, setQuizReset] = useState(false);
-  const [startBasic, setStartBasic] = useState(false);
+  const [startInterval, setStartInterval] = useState(false);
+  const [startBeginnerChord, setStartBeginnerChord] = useState(false);
+  const [startIntermediateChord, setStartIntermediateChord] = useState(false);
   const [questionNum, setQuestionNum] = useState(0);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [question, setQuestion] = useState('');
@@ -65,53 +86,108 @@ const Quiz = () => {
   const [a3, setA3] = useState('');
   const [a4, setA4] = useState('');
 
-  const basicEdition = () => {
-    setQuizEdition('Basic');
+  const intervalEdition = () => {
+    const toggleBtns = document.getElementById('quizButtons');
+    toggleBtns.style.display = 'none';
+    setQuizEdition('interval');
     setQuizStart(true);
   };
+
+  const beginnerChordEdition = () => {
+    const toggleBtns = document.getElementById('quizButtons');
+    toggleBtns.style.display = 'none';
+    setQuizEdition('beginnerChord');
+    setQuizStart(true);
+  };
+
+  const intermediateChordEdition = () => {
+    const toggleBtns = document.getElementById('quizButtons');
+    toggleBtns.style.display = 'none';
+    setQuizEdition('intermediateChord');
+    setQuizStart(true);
+  };
+
   const startQuiz = () => {
-    if (quizEdition === 'Basic') {
-      basicQuizStart();
+    const toggleBtns = document.getElementById('startButton');
+    toggleBtns.style.display = 'none';
+    if (quizEdition === 'interval') {
+      intervalQuizStart();
+    } else if (quizEdition === 'beginnerChord') {
+      beginnerChordQuizStart();
+    } else if (quizEdition === 'intermediateChord') {
+      intermediateChordQuizStart();
     }
     setQuizStart(false);
     setQuizChoice(false);
     setInitialQuizState(false);
   };
-  const basicQuizStart = () => {
-    const toggleBtn = document.getElementById('startBtn');
-    toggleBtn.style.display = 'none';
-    setStartBasic(true);
+
+  const intervalQuizStart = () => {
+    setStartInterval(true);
     setQuestionNum( currentQuestion => currentQuestion + 1 );
     loadNewQuestion();
   };
+
+  const beginnerChordQuizStart = () => {
+    setStartBeginnerChord(true);
+    setQuestionNum( currentQuestion => currentQuestion + 1 );
+    loadNewQuestion();
+  };
+
+  const intermediateChordQuizStart = () => {
+    setStartIntermediateChord(true);
+    setQuestionNum( currentQuestion => currentQuestion + 1 );
+    loadNewQuestion();
+  };
+
   const loadNewQuestion = () => {
-    if (quizEdition === 'Basic') {
-      setQuestion(BasicQuestions[questionNum].question);
-      setInterval(BasicQuestions[questionNum].interval);
-      setA1(BasicQuestions[questionNum].a1);
-      setA2(BasicQuestions[questionNum].a2);
-      setA3(BasicQuestions[questionNum].a3);
-      setA4(BasicQuestions[questionNum].a4);
-      setCorrect(BasicQuestions[questionNum].correct);
-      setTotalQuestions(BasicQuestions.length);
+    if (quizEdition === 'interval') {
+      setQuestion(IntervalQuestions[questionNum].question);
+      setInterval(IntervalQuestions[questionNum].interval);
+      setA1(IntervalQuestions[questionNum].a1);
+      setA2(IntervalQuestions[questionNum].a2);
+      setA3(IntervalQuestions[questionNum].a3);
+      setA4(IntervalQuestions[questionNum].a4);
+      setCorrect(IntervalQuestions[questionNum].correct);
+      setTotalQuestions(IntervalQuestions.length);
+    } else if (quizEdition === 'beginnerChord') {
+      setQuestion(ChordQuestions[questionNum].question);
+      setInterval(ChordQuestions[questionNum].interval);
+      setA1(ChordQuestions[questionNum].a1);
+      setA2(ChordQuestions[questionNum].a2);
+      setA3(ChordQuestions[questionNum].a3);
+      setA4(ChordQuestions[questionNum].a4);
+      setCorrect(ChordQuestions[questionNum].correct);
+      setTotalQuestions(ChordQuestions.length);
+    } else if (quizEdition === 'intermediateChord') {
+      setQuestion(IntChordQuestions[questionNum].question);
+      setInterval(IntChordQuestions[questionNum].interval);
+      setA1(IntChordQuestions[questionNum].a1);
+      setA2(IntChordQuestions[questionNum].a2);
+      setA3(IntChordQuestions[questionNum].a3);
+      setA4(IntChordQuestions[questionNum].a4);
+      setCorrect(IntChordQuestions[questionNum].correct);
+      setTotalQuestions(IntChordQuestions.length);
     };
   };
+
   const checkAnswer = e => {
     setQuestionNum( currentQuestion => currentQuestion + 1 );
     jsonCheck(e);
   };
+
   const jsonCheck = e => {
     let id = e.target.getAttribute('data_id');
     if (id === correct) {
       setPlayerScore( currentPlayerScore => currentPlayerScore + 1 );
     }
-    console.log('questionNum', questionNum);
     if (questionNum < totalQuestions) {
       loadNewQuestion();
     } else {
       gameOver();
     }
   };
+
   const gameOver = () => {
     setQuizReset(true);
   }
@@ -119,8 +195,15 @@ const Quiz = () => {
   if (user) {
     return (
       <QuestionCard>
-        <button id='startBtn' onClick={basicQuizStart}>Start Quiz</button>
-        {startBasic ? (
+        <QuizChoice id='quizButtons'>
+          <button id='intervalBtn' onClick={intervalEdition}>Interval Quiz</button>
+          <button id='beginnerChordBtn' onClick={beginnerChordEdition}>Beginner Chord Quiz</button>
+          <button id='intermediateChordBtn' onClick={intermediateChordEdition}>Intermediate Chord Quiz</button>
+        </QuizChoice>
+        { quizEdition !== '' &&
+          <button id='startButton' onClick={startQuiz}>Start Quiz</button>
+        }
+        {startInterval || startBeginnerChord || startIntermediateChord ? (
           <>
             <Question>
               {!quizReset ? (

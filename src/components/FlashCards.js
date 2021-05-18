@@ -46,7 +46,6 @@ const Card = styled.div`
   }
 `
 
-
 function FlashCards(){
   const user = firebase.auth().currentUser;
   const [play] = useSound(intervalsC, {
