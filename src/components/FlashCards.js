@@ -14,7 +14,7 @@ import majSixth from '../img/major-sixth.png';
 import minSeventh from '../img/minor-seventh.png';
 import majSeventh from '../img/major-seventh.png';
 import octave from '../img/octave.jpeg';
-import intervalsC from '../audios/intervalsC.mp3';
+import intervals from '../audios/intervals.mp3';
 
 const CardGrid = styled.div`
   display: flex;
@@ -48,20 +48,20 @@ const Card = styled.div`
 
 function FlashCards(){
   const user = firebase.auth().currentUser;
-  const [play] = useSound(intervalsC, {
+  const [play] = useSound(intervals, {
     sprite: {
-      half: [0, 3000],
-      whole: [5300, 3500],
-      min3rd: [10600, 3500],
-      maj3rd: [16000, 3500],
-      perf4th: [21300, 3500],
-      tri: [26600, 3500],
-      perf5th: [32000, 3500],
-      aug5th: [37300, 3500],
-      maj6th: [42600, 3500],
-      min7th: [48000, 3500],
-      maj7th: [53300, 3500],
-      octave: [58600, 3500]
+      half: [0, 3500],
+      whole: [5320, 3500],
+      min3rd: [10650, 3500],
+      maj3rd: [15900, 3500],
+      perf4th: [21320, 3500],
+      tri: [26650, 3500],
+      perf5th: [31900, 3500],
+      aug5th: [37320, 3500],
+      maj6th: [42650, 3500],
+      min7th: [47900, 3500],
+      maj7th: [53320, 3500],
+      octave: [58650, 3500]
     }
   });
   if (user) {

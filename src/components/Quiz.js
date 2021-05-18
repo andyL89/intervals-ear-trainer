@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import firebase from "firebase/app";
-import Delayed from './Time/Delayed';
+// import Delayed from './Time/Delayed';
 import IntervalQuestions from '../json/intervalQuestions';
 import ChordQuestions from '../json/chordQuestions';
 import SeventhChordQuestions from '../json/seventhChordQuestions';
 import useSound from 'use-sound';
-import intervalsC from '../audios/intervalsC.mp3';
-import beginnerChords from '../audios/beginnerChords.mp3';
+import intervals from '../audios/intervalsC.mp3';
+import triadChords from '../audios/triadChords.mp3';
 import seventhChords from '../audios/seventhChords.mp3';
 import playBtn from '../img/play.png';
 
@@ -70,24 +70,24 @@ const Quiz = () => {
 
   const user = firebase.auth().currentUser;
 
-  const [playInt] = useSound(intervalsC, {
+  const [playInt] = useSound(intervals, {
     sprite: {
-      half: [0, 3000],
-      whole: [5300, 3500],
-      min3rd: [10600, 3500],
-      maj3rd: [16000, 3500],
-      perf4th: [21300, 3500],
-      tri: [26600, 3500],
-      perf5th: [32000, 3500],
-      aug5th: [37300, 3500],
-      maj6th: [42600, 3500],
-      min7th: [48000, 3500],
-      maj7th: [53300, 3500],
-      octave: [58600, 3500]
+      half: [0, 3500],
+      whole: [5320, 3500],
+      min3rd: [10650, 3500],
+      maj3rd: [15900, 3500],
+      perf4th: [21320, 3500],
+      tri: [26650, 3500],
+      perf5th: [31900, 3500],
+      aug5th: [37320, 3500],
+      maj6th: [42650, 3500],
+      min7th: [47900, 3500],
+      maj7th: [53320, 3500],
+      octave: [58650, 3500]
     }
   });
 
-  const [playChord] = useSound(beginnerChords, {
+  const [playChord] = useSound(triadChords, {
     sprite: {
       major1: [0, 4000],
       major2: [4780, 4000],
@@ -195,6 +195,7 @@ const Quiz = () => {
   };
 
   const loadNewQuestion = () => {
+
     if (quizEdition === 'interval') {
       setQuestion(IntervalQuestions[questionNum].question);
       setInterval(IntervalQuestions[questionNum].interval);
