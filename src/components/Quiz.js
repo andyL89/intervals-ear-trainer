@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import firebase from "firebase/app";
+import Delayed from './Time/Delayed';
 import IntervalQuestions from '../json/intervalQuestions';
 import ChordQuestions from '../json/chordQuestions';
 import SeventhChordQuestions from '../json/seventhChordQuestions';
@@ -8,6 +9,7 @@ import useSound from 'use-sound';
 import intervalsC from '../audios/intervalsC.mp3';
 import beginnerChords from '../audios/beginnerChords.mp3';
 import seventhChords from '../audios/seventhChords.mp3';
+import playBtn from '../img/play.png';
 
 const QuestionCard = styled.div`
   margin: auto;
@@ -19,6 +21,10 @@ const QuestionCard = styled.div`
   padding-bottom: 10px;
   border: none;
   width: 50vw;
+  button {
+    border-radius: 5px;
+    padding: 5px;
+  }
 `
 const QuizChoice = styled.div`
   margin: auto;
@@ -45,6 +51,18 @@ const Question = styled.div`
   width: 50vw;
   button {
     margin-top: 1vw;
+  }
+`
+const PlayButton = styled.div`
+  border-radius: 50px;
+  transition: .3s;
+  img {
+    max-width: 70px;
+    max-height: 70px;
+  }
+  &:hover {
+    background-color: #0080FF;
+    cursor: pointer;
   }
 `
 
@@ -144,8 +162,8 @@ const Quiz = () => {
   };
 
   const startQuiz = () => {
-    const toggleBtns = document.getElementById('startButton');
-    toggleBtns.style.display = 'none';
+    const toggleBtn = document.getElementById('startButton');
+    toggleBtn.style.display = 'none';
     if (quizEdition === 'interval') {
       intervalQuizStart();
     } else if (quizEdition === 'beginnerChord') {
@@ -235,7 +253,7 @@ const Quiz = () => {
       <QuestionCard>
         <QuizChoice id='quizButtons'>
           <button id='intervalBtn' onClick={intervalEdition}>Interval Quiz</button>
-          <button id='beginnerChordBtn' onClick={beginnerChordEdition}>Beginner Chord Quiz</button>
+          <button id='beginnerChordBtn' onClick={beginnerChordEdition}>Triad Chord Quiz</button>
           <button id='intermediateChordBtn' onClick={seventhChordEdition}>Seventh Chord Quiz</button>
         </QuizChoice>
         { quizEdition !== '' &&
@@ -251,13 +269,13 @@ const Quiz = () => {
                   </h3>
                   <h2 className='quiz-question'>{question}</h2>
                   { quizEdition === 'interval' &&
-                    <button onClick={() => playInt({ id: (interval) })}>Listen</button>
+                    <PlayButton onClick={() => playInt({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
                   }
                   { quizEdition === 'beginnerChord' &&
-                    <button onClick={() => playChord({ id: (interval) })}>Listen</button>
+                    <PlayButton onClick={() => playChord({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
                   }
                   { quizEdition === 'seventhChord' &&
-                    <button onClick={() => play7thChord({ id: (interval) })}>Listen</button>
+                    <PlayButton onClick={() => play7thChord({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
                   }
                   <button
                     className='btn btn-primary game-buttons'
