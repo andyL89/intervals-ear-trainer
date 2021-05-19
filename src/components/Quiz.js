@@ -5,7 +5,7 @@ import IntervalQuestions from '../json/intervalQuestions';
 import ChordQuestions from '../json/chordQuestions';
 import SeventhChordQuestions from '../json/seventhChordQuestions';
 import useSound from 'use-sound';
-import intervals from '../audios/intervalsC.mp3';
+import intervals from '../audios/intervals.mp3';
 import triadChords from '../audios/triadChords.mp3';
 import seventhChords from '../audios/seventhChords.mp3';
 import playBtn from '../img/play.png';
@@ -39,7 +39,7 @@ const QuestionCard = styled.div`
     font-weight: 700;
     color: black;
     background: #ffffff;
-    border: 2px solid black;
+    border: 2px solid rgba(0,0,0,.7);
     border-radius: 10px;
     padding: 10px;
     transition: .3s;
@@ -51,7 +51,7 @@ const QuestionCard = styled.div`
   }
 `
 const QuizChoice = styled.div`
-  margin-top: 5vw;
+  margin-top: 6vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -68,7 +68,7 @@ const QuizCard = styled.div`
   color: black;
   font-weight: 600;
   background: rgba(255, 255, 255, .6);
-  border: 3px solid black;
+  border: 2px solid rgba(0,0,0,.7);
   border-radius: 20px;
   padding: 30px;
   text-align: center;
@@ -87,7 +87,7 @@ const QuizCard = styled.div`
     font-weight: 700;
     color: black;
     background: #ffffff;
-    border: 2px solid black;
+    border: 2px solid rgba(0,0,0,.7);
     border-radius: 10px;
     padding: 10px;
     transition: .3s;
@@ -100,7 +100,7 @@ const QuizCard = styled.div`
 `
 const Question = styled.div`
   background: rgba(255, 255, 255, .6);
-  border: 3px solid black;
+  border: 2px solid rgba(0,0,0,.7);
   border-radius: 40px;
   margin: auto;
   margin-top: 5vw;
@@ -432,7 +432,7 @@ const Quiz = () => {
       </QuestionCard>
     )} else {
     return (
-      <h3 style={{color: "red", textAlign: 'center'}}>You must sign in to view content</h3>
+      <h3 style={{marginTop: '5vw', color: "red", textAlign: 'center'}}>You must sign in to view content</h3>
     );
   }
 };

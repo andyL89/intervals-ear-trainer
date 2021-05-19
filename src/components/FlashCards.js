@@ -36,7 +36,7 @@ const Card = styled.div`
   align-items: center;
   padding-bottom: 10px;
   height: 13vw;
-  border: 2px solid black;
+  border: 2px solid rgba(0,0,0,.7);
   border-radius: 5px;
   flex: 1 0 15%;
   margin: 10px;
@@ -163,7 +163,7 @@ function FlashCards(){
     );
   } else {
     return (
-      <h4 style={{marginTop: '8vw', color: "red", textAlign: 'center'}}>Please sign in to view content</h4>
+      <h4 style={{marginTop: '5vw', color: "red", textAlign: 'center'}}>Please sign in to view content</h4>
     );
   }
 }
