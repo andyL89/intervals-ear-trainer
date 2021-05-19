@@ -23,6 +23,7 @@ const CardGrid = styled.div`
   padding: 3vw 8vw;
 `
 const Card = styled.div`
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content:center;
@@ -41,6 +42,7 @@ const Card = styled.div`
     max-width: 12vw;
   }
   &:hover {
+    color: #29b3ff;
     cursor: pointer;
     transform: scale(1.1);
   }

@@ -10,6 +10,9 @@ import intervals from '../audios/intervalsC.mp3';
 import triadChords from '../audios/triadChords.mp3';
 import seventhChords from '../audios/seventhChords.mp3';
 import playBtn from '../img/play.png';
+import majThird from '../img/major-third.png';
+import triad from '../img/triad.jpeg';
+import seventh from '../img/dominant-seventh-chord.png';
 
 const QuestionCard = styled.div`
   margin: auto;
@@ -27,17 +30,50 @@ const QuestionCard = styled.div`
   }
 `
 const QuizChoice = styled.div`
-  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-content: end;
   padding-bottom: 10px;
   border: none;
-  width: 50vw;
+  width: 70vw;
   button {
     border-radius: 5px;
     padding: 5px;
+  }
+`
+const QuizCard = styled.div`
+  color: black;
+  font-weight: 600;
+  background: #ffffff;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 20vw;
+  height: fit-content;
+  img {
+    max-height: 10vw;
+    padding-bottom: 15px;
+  }
+  button {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: black;
+    background: #ffffff;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    transition: .3s;
+    &:hover {
+      color: #29b3ff;
+      border: 2px solid #29b3ff;
+      transform: scale(1.1);
+    }
   }
 `
 const Question = styled.div`
@@ -253,9 +289,21 @@ const Quiz = () => {
     return (
       <QuestionCard>
         <QuizChoice id='quizButtons'>
-          <button id='intervalBtn' onClick={intervalEdition}>Interval Quiz</button>
-          <button id='beginnerChordBtn' onClick={beginnerChordEdition}>Triad Chord Quiz</button>
-          <button id='intermediateChordBtn' onClick={seventhChordEdition}>Seventh Chord Quiz</button>
+          <QuizCard>
+            <p>Practice identifying intervals with this quick quiz!</p>
+            <img src={majThird} alt="interval"/>
+            <button id='intervalBtn' onClick={intervalEdition}>Interval Quiz</button>
+          </QuizCard>
+          <QuizCard>
+            <p>Practice identifying triads with this quick quiz!</p>
+            <img src={triad} alt="triad"/>
+            <button id='beginnerChordBtn' onClick={beginnerChordEdition}>Triad Chord Quiz</button>
+          </QuizCard>
+          <QuizCard>
+            <p>Practice identifying seventh chords with this quick quiz!</p>
+            <img src={seventh} alt="seventh"/>
+            <button id='intermediateChordBtn' onClick={seventhChordEdition}>Seventh Chord Quiz</button>
+          </QuizCard>
         </QuizChoice>
         { quizEdition !== '' &&
           <button id='startButton' onClick={startQuiz}>Start Quiz</button>

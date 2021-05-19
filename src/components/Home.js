@@ -7,10 +7,10 @@ const Blurb = styled.div`
   align-items: center;
   margin: auto;
   text-align: center;
-  padding: 5vw;
+  padding: 4vw;
   width: 50vw;
   p {
-    margin-top: 2vw;
+    margin-top: 1vw;
     width: 27vw;
   }
 `

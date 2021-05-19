@@ -1,4 +1,8 @@
 body, html {
+  background-image: url("./img/Cool\ Kids\ -\ Staying\ Home.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 70%;
   width: 100%;
   height: 100%;
 }
