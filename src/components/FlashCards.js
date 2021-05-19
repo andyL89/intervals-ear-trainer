@@ -23,7 +23,7 @@ const CardGrid = styled.div`
   padding: 3vw 8vw;
 `
 const Card = styled.div`
-  background: white;
+  background: rgba(255, 255, 255, .9);
   display: flex;
   flex-direction: column;
   justify-content:center;
@@ -88,49 +88,9 @@ function FlashCards(){
     );
   } else {
     return (
-      <h3 style={{color: "red", textAlign: 'center'}}>You must sign in to view content</h3>
+      <h4 style={{marginTop: '4vw', color: "red", textAlign: 'center'}}>You must sign in to view content</h4>
     );
   }
 }
-
-// function FlashCards(props){
-//   useFirestoreConnect([
-//     { collection: 'flashCards' }
-//   ]);
-//   const flashCards = useSelector(state => state.firestore.flashCards);
-//   const user = firebase.auth().currentUser;
-//   if (!user) {
-//     return (
-//       <h1>You must be signed in to view content</h1>
-//     )
-//   }
-//   else if (isLoaded(flashCards) && (user)) {
-//     return (
-//       <>
-//         <h1>Flash Cards</h1>
-//         <hr />
-//         {flashCards.map((flashCard) => {
-//             return <FlashCard
-//               whenFlashCardClicked = { props.onFlashCardSelection }
-//               interval={flashCard.interval}
-//               id={flashCard.id}
-//               key={flashCard.id}/>
-//           })}
-//       </>
-//     );
-//   } else if (isEmpty(flashCards) && (user)) {
-//     return (
-//       <h1>No Flash Cards yet!</h1>
-//     )
-//   } else {
-//     return (
-//       <h3>Loading...</h3>
-//     )
-//   }
-// }
-
-// FlashCards.propTypes = {
-//   onFlashCardSelection: PropTypes.func
-// };
 
 export default FlashCards;

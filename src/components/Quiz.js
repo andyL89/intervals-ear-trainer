@@ -14,9 +14,20 @@ import majThird from '../img/major-third.png';
 import triad from '../img/triad.jpeg';
 import seventh from '../img/dominant-seventh-chord.png';
 
+const Description = styled.div`
+  margin-top: 3vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  border: none;
+  width: 30vw;
+`
+
 const QuestionCard = styled.div`
   margin: auto;
-  margin-top: 10vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,11 +36,23 @@ const QuestionCard = styled.div`
   border: none;
   width: 50vw;
   button {
-    border-radius: 5px;
-    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: black;
+    background: #ffffff;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    transition: .3s;
+    &:hover {
+      color: #29b3ff;
+      border: 2px solid #29b3ff;
+      transform: scale(1.1);
+    }
   }
 `
 const QuizChoice = styled.div`
+  margin-top: 5vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -45,7 +68,7 @@ const QuizChoice = styled.div`
 const QuizCard = styled.div`
   color: black;
   font-weight: 600;
-  background: #ffffff;
+  background: rgba(255, 255, 255, .6);
   border: 3px solid black;
   border-radius: 20px;
   padding: 30px;
@@ -77,14 +100,17 @@ const QuizCard = styled.div`
   }
 `
 const Question = styled.div`
+  background: rgba(255, 255, 255, .6);
+  border: 3px solid black;
+  border-radius: 40px;
   margin: auto;
+  margin-top: 5vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 10px;
-  border: none;
-  width: 50vw;
+  padding: 20px;
+  width: 40vw;
   button {
     margin-top: 1vw;
   }
@@ -200,6 +226,8 @@ const Quiz = () => {
   const startQuiz = () => {
     const toggleBtn = document.getElementById('startButton');
     toggleBtn.style.display = 'none';
+    const toggleDesc = document.getElementById('desc');
+    toggleDesc.style.display = 'none';
     if (quizEdition === 'interval') {
       intervalQuizStart();
     } else if (quizEdition === 'beginnerChord') {
@@ -305,60 +333,78 @@ const Quiz = () => {
             <button id='intermediateChordBtn' onClick={seventhChordEdition}>Seventh Chord Quiz</button>
           </QuizCard>
         </QuizChoice>
-        { quizEdition !== '' &&
-          <button id='startButton' onClick={startQuiz}>Start Quiz</button>
+        { quizEdition === 'interval' &&
+          <>
+            <Description id='desc'>
+              <h1>Intervals</h1>
+              <p>An <b>interval</b> is a difference in pitch between two notes. In western harmony, there are 12 intervals in a given octave. Each interval has a distinct sound and can be used to create unique chords and melodies. Let's see how many intervals you can identify correctly!</p>
+            </Description>
+            <button id='startButton' onClick={startQuiz}>Start Quiz</button>
+          </>
+        }
+        { quizEdition === 'beginnerChord' &&
+          <>
+            <Description id='desc'>
+              <h1>Triads</h1>
+              <p>A <b>triad</b> is a set of three notes that create a chord. The notes of a triad from lowest to highest are known as: the <b>root</b>, the <b>third</b>, and the <b>fifth</b>. Triads come in four flavors: <b>major, minor, diminished, and augmented</b>. Let's see how many triads you can identify correctly!</p>
+            </Description>
+            <button id='startButton' onClick={startQuiz}>Start Quiz</button>
+          </>
+        }
+        { quizEdition === 'seventhChord' &&
+          <>
+            <Description id='desc'>
+              <h1>Seventh Chords</h1>
+              <p>A <b>seventh chord</b> is a chord consisting of a triad plus a note forming an interval of a seventh above the chord's root. Seventh chords come in many forms including: <b>major, minor, major/minor, diminished, and augmented</b>. Let's see how many seventh chords you can identify correctly!</p>
+            </Description>
+            <button id='startButton' onClick={startQuiz}>Start Quiz</button>
+          </>
         }
         {startInterval || startBeginnerChord || startSeventhChord ? (
-          <>
-            <Question>
-              {!quizReset ? (
-                <>
-                  <h3 className='quiz-question-number'>
-                    Q. {questionNum}
-                  </h3>
-                  <h2 className='quiz-question'>{question}</h2>
-                  { quizEdition === 'interval' &&
-                    <PlayButton onClick={() => playInt({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
-                  }
-                  { quizEdition === 'beginnerChord' &&
-                    <PlayButton onClick={() => playChord({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
-                  }
-                  { quizEdition === 'seventhChord' &&
-                    <PlayButton onClick={() => play7thChord({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
-                  }
-                  <button
-                    className='btn btn-primary game-buttons'
-                    onClick={checkAnswer}
-                    data_id='1'
-                  >
-                    {a1}
-                  </button>
-                  <button
-                    className='btn btn-primary game-buttons'
-                    onClick={checkAnswer}
-                    data_id='2'
-                  >
-                    {a2}
-                  </button>
-                  <button
-                    className='btn btn-primary game-buttons'
-                    onClick={checkAnswer}
-                    data_id='3'
-                  >
-                    {a3}
-                  </button>
-                  <button
-                    className='btn btn-primary game-buttons'
-                    onClick={checkAnswer}
-                    data_id='4'
-                  >
-                    {a4}
-                  </button>
-                </>
-              ) : (
-                ''
-              )}
-            </Question>
+          <Question>
+            {!quizReset ? (
+              <>
+                <h3 className='quiz-question-number'>
+                  Q. {questionNum}
+                </h3>
+                <h2 className='quiz-question'>{question}</h2>
+                { quizEdition === 'interval' &&
+                  <PlayButton onClick={() => playInt({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
+                }
+                { quizEdition === 'beginnerChord' &&
+                  <PlayButton onClick={() => playChord({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
+                }
+                { quizEdition === 'seventhChord' &&
+                  <PlayButton onClick={() => play7thChord({ id: (interval) })}><img src={playBtn} alt="play"/></PlayButton>
+                }
+                <button
+                  onClick={checkAnswer}
+                  data_id='1'
+                >
+                  {a1}
+                </button>
+                <button
+                  onClick={checkAnswer}
+                  data_id='2'
+                >
+                  {a2}
+                </button>
+                <button
+                  onClick={checkAnswer}
+                  data_id='3'
+                >
+                  {a3}
+                </button>
+                <button
+                  onClick={checkAnswer}
+                  data_id='4'
+                >
+                  {a4}
+                </button>
+              </>
+            ) : (
+              ''
+            )}
             <div>
               {quizReset ? (
                 <>
@@ -371,16 +417,16 @@ const Quiz = () => {
                     <h3>
                       {(
                         (playerScore / totalQuestions) * 100
-                      ).toFixed(2)}
+                        ).toFixed(2)}
                       %
                     </h3>
                   </div>
                 </>
-              ) : (
-                ''
-              )}
+                ) : (
+                  ''
+                )}
             </div>
-          </>
+          </Question>
         ) : (
           ''
         )}
