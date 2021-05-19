@@ -15,12 +15,18 @@ import minSeventh from '../img/minor-seventh.png';
 import majSeventh from '../img/major-seventh.png';
 import octave from '../img/octave.jpeg';
 import intervals from '../audios/intervals.mp3';
+import triadChords from '../audios/triadChords.mp3';
+import seventhChords from '../audios/seventhChords.mp3';
+
+const Page = styled.div`
+  padding-bottom: 5vw;
+`
 
 const CardGrid = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding: 3vw 8vw;
+  padding: 1vw 8vw;
 `
 const Card = styled.div`
   background: rgba(255, 255, 255, .9);
@@ -49,7 +55,9 @@ const Card = styled.div`
 `
 
 function FlashCards(){
+
   const user = firebase.auth().currentUser;
+
   const [play] = useSound(intervals, {
     sprite: {
       half: [0, 3500],
@@ -66,10 +74,45 @@ function FlashCards(){
       octave: [58650, 3500]
     }
   });
+
+  const [playChord] = useSound(triadChords, {
+    sprite: {
+      major1: [0, 4000],
+      major2: [4780, 4000],
+      major3: [9580, 4000],
+      major4: [14380, 4000],
+      minor1: [19180, 4000],
+      minor2: [23900, 4000],
+      minor3: [28780, 4000],
+      minor4: [33580, 4000],
+      diminished1: [38380, 4000],
+      diminished2: [43190, 4000],
+      augmented1: [47900, 4000],
+      augmented2: [52780, 4000]
+    }
+  });
+
+  const [play7thChord] = useSound(seventhChords, {
+    sprite: {
+      major1: [0, 4000],
+      major2: [4780, 4000],
+      dominant1: [9580, 4000],
+      dominant2: [14380, 4000],
+      minor1: [19180, 4000],
+      minor2: [23900, 4000],
+      minor3: [28780, 4000],
+      minor4: [33580, 4000],
+      diminished1: [38380, 4000],
+      diminished2: [43190, 4000],
+      augmented1: [47900, 4000],
+      augmented2: [52780, 4000]
+    }
+  });
+
   if (user) {
     return (
-      <>
-        <h2 style={{textAlign: 'center', paddingTop: '40px'}}>Click a card to hear the interval</h2>
+      <Page>
+        <h1 style={{textAlign: 'center', paddingTop: '40px'}}>Intervals</h1>
         <CardGrid>
           <Card onClick={() => play({ id: 'half' })}><img src={halfStep} alt="half step"/>Half Step</Card>
           <Card onClick={() => play({ id: 'whole' })}><img src={wholeStep} alt="whole step"/>Whole Step</Card>
@@ -84,11 +127,43 @@ function FlashCards(){
           <Card onClick={() => play({ id: 'maj7th' })}><img src={majSeventh} alt="major 7th"/>Major 7th</Card>
           <Card onClick={() => play({ id: 'octave' })}><img src={octave} alt="octave"/>Perfect Octave</Card>
         </CardGrid>
-      </>
+
+        <h1 style={{textAlign: 'center', paddingTop: '40px'}}>Triads</h1>
+        <CardGrid>
+          <Card onClick={() => playChord({ id: 'major1' })}>C Major</Card>
+          <Card onClick={() => playChord({ id: 'major2' })}>F major</Card>
+          <Card onClick={() => playChord({ id: 'major3' })}>G Major</Card>
+          <Card onClick={() => playChord({ id: 'major4' })}>D Major</Card>
+          <Card onClick={() => playChord({ id: 'minor1' })}>E Minor</Card>
+          <Card onClick={() => playChord({ id: 'minor2' })}>D Minor</Card>
+          <Card onClick={() => playChord({ id: 'minor3' })}>G Minor</Card>
+          <Card onClick={() => playChord({ id: 'minor4' })}>C Minor</Card>
+          <Card onClick={() => playChord({ id: 'diminished1' })}>B Diminished</Card>
+          <Card onClick={() => playChord({ id: 'diminished2' })}>G Diminished</Card>
+          <Card onClick={() => playChord({ id: 'augmented1' })}>C Augmented</Card>
+          <Card onClick={() => playChord({ id: 'augmented2' })}>F Augmented</Card>
+        </CardGrid>
+
+        <h1 style={{textAlign: 'center', paddingTop: '40px'}}>Seventh Chords</h1>
+        <CardGrid>
+          <Card onClick={() => playChord({ id: 'major1' })}>Cmaj7</Card>
+          <Card onClick={() => playChord({ id: 'major2' })}>Fmaj7</Card>
+          <Card onClick={() => playChord({ id: 'dominant1' })}>G7</Card>
+          <Card onClick={() => playChord({ id: 'dominant2' })}>D7</Card>
+          <Card onClick={() => playChord({ id: 'minor1' })}>Emin7</Card>
+          <Card onClick={() => playChord({ id: 'minor2' })}>Dmin7</Card>
+          <Card onClick={() => playChord({ id: 'minor3' })}>Gmin7</Card>
+          <Card onClick={() => playChord({ id: 'minor4' })}>Cmin7</Card>
+          <Card onClick={() => playChord({ id: 'diminished1' })}>Bº7<br/>(Diminished)</Card>
+          <Card onClick={() => playChord({ id: 'diminished2' })}>Gº7<br/>(Diminished)</Card>
+          <Card onClick={() => playChord({ id: 'augmented1' })}>C+7<br/>(Augmented)</Card>
+          <Card onClick={() => playChord({ id: 'augmented2' })}>F+7<br/>(Augmented)</Card>
+        </CardGrid>
+      </Page>
     );
   } else {
     return (
-      <h4 style={{marginTop: '4vw', color: "red", textAlign: 'center'}}>You must sign in to view content</h4>
+      <h4 style={{marginTop: '8vw', color: "red", textAlign: 'center'}}>Please sign in to view content</h4>
     );
   }
 }

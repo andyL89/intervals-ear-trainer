@@ -1,6 +1,6 @@
 [
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "major1",
     "a1": "Minor 7th",
     "a2": "Major 7th",
@@ -9,7 +9,7 @@
     "correct": "2"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "minor1",
     "a1": "Augmented 7th",
     "a2": "Dominant 7th",
@@ -18,7 +18,7 @@
     "correct": "4"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "diminished1",
     "a1": "Major 7th",
     "a2": "Minor 7th",
@@ -27,7 +27,7 @@
     "correct": "3"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "augmented1",
     "a1": "Minor 7th",
     "a2": "Augmented 7th",
@@ -36,7 +36,7 @@
     "correct": "2"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "major2",
     "a1": "Major 7th",
     "a2": "Dominant 7th",
@@ -45,7 +45,7 @@
     "correct": "1"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "diminished2",
     "a1": "Major 7th",
     "a2": "Augmented 7th",
@@ -54,7 +54,7 @@
     "correct": "4"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "minor2",
     "a1": "Minor Seventh",
     "a2": "Diminished 7th",
@@ -63,7 +63,7 @@
     "correct": "1"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "minor3",
     "a1": "Dominant 7th",
     "a2": "Augmented 7th",
@@ -72,7 +72,7 @@
     "correct": "3"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "dominant1",
     "a1": "Diminished 7th",
     "a2": "Major 7th",
@@ -81,7 +81,7 @@
     "correct": "3"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "augmented2",
     "a1": "Dominant 7th",
     "a2": "Minor 7th",
@@ -90,7 +90,7 @@
     "correct": "4"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "dominant2",
     "a1": "Major 7th",
     "a2": "Dominant 7th",
@@ -99,7 +99,7 @@
     "correct": "2"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of 7th chord is this?",
     "interval": "minor4",
     "a1": "Minor 7th",
     "a2": "Major 7th",

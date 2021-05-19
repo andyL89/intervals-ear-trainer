@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import firebase from "firebase/app";
-// import Delayed from './Time/Delayed';
 import IntervalQuestions from '../json/intervalQuestions';
 import ChordQuestions from '../json/chordQuestions';
 import SeventhChordQuestions from '../json/seventhChordQuestions';

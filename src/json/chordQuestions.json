@@ -1,6 +1,6 @@
 [
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "major1",
     "a1": "Augmented",
     "a2": "Diminished",
@@ -9,7 +9,7 @@
     "correct": "3"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "minor1",
     "a1": "Minor",
     "a2": "Diminished",
@@ -18,7 +18,7 @@
     "correct": "1"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "diminished1",
     "a1": "Major",
     "a2": "Minor",
@@ -27,7 +27,7 @@
     "correct": "4"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "augmented1",
     "a1": "Minor",
     "a2": "Augmented",
@@ -36,7 +36,7 @@
     "correct": "2"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "major2",
     "a1": "Diminished",
     "a2": "Minor",
@@ -45,7 +45,7 @@
     "correct": "4"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "diminished2",
     "a1": "Augmented",
     "a2": "Major",
@@ -54,7 +54,7 @@
     "correct": "3"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "minor2",
     "a1": "Minor",
     "a2": "Diminished",
@@ -63,7 +63,7 @@
     "correct": "1"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "minor3",
     "a1": "Major",
     "a2": "Minor",
@@ -72,7 +72,7 @@
     "correct": "2"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "major3",
     "a1": "Major",
     "a2": "Augmented",
@@ -81,7 +81,7 @@
     "correct": "1"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "augmented2",
     "a1": "Diminished",
     "a2": "Major",
@@ -90,7 +90,7 @@
     "correct": "4"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "major4",
     "a1": "Augmented",
     "a2": "Diminished",
@@ -99,7 +99,7 @@
     "correct": "3"
   },
   {
-    "question": "What chord is this?",
+    "question": "What kind of triad is this?",
     "interval": "minor4",
     "a1": "Major",
     "a2": "Minor",
