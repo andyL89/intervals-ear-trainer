@@ -146,18 +146,18 @@ function FlashCards(){
 
         <h1 style={{textAlign: 'center', paddingTop: '40px'}}>Seventh Chords</h1>
         <CardGrid>
-          <Card onClick={() => playChord({ id: 'major1' })}>Cmaj7</Card>
-          <Card onClick={() => playChord({ id: 'major2' })}>Fmaj7</Card>
-          <Card onClick={() => playChord({ id: 'dominant1' })}>G7</Card>
-          <Card onClick={() => playChord({ id: 'dominant2' })}>D7</Card>
-          <Card onClick={() => playChord({ id: 'minor1' })}>Emin7</Card>
-          <Card onClick={() => playChord({ id: 'minor2' })}>Dmin7</Card>
-          <Card onClick={() => playChord({ id: 'minor3' })}>Gmin7</Card>
-          <Card onClick={() => playChord({ id: 'minor4' })}>Cmin7</Card>
-          <Card onClick={() => playChord({ id: 'diminished1' })}>Bº7<br/>(Diminished)</Card>
-          <Card onClick={() => playChord({ id: 'diminished2' })}>Gº7<br/>(Diminished)</Card>
-          <Card onClick={() => playChord({ id: 'augmented1' })}>C+7<br/>(Augmented)</Card>
-          <Card onClick={() => playChord({ id: 'augmented2' })}>F+7<br/>(Augmented)</Card>
+          <Card onClick={() => play7thChord({ id: 'major1' })}>Cmaj7</Card>
+          <Card onClick={() => play7thChord({ id: 'major2' })}>Fmaj7</Card>
+          <Card onClick={() => play7thChord({ id: 'dominant1' })}>G7</Card>
+          <Card onClick={() => play7thChord({ id: 'dominant2' })}>D7</Card>
+          <Card onClick={() => play7thChord({ id: 'minor1' })}>Emin7</Card>
+          <Card onClick={() => play7thChord({ id: 'minor2' })}>Dmin7</Card>
+          <Card onClick={() => play7thChord({ id: 'minor3' })}>Gmin7</Card>
+          <Card onClick={() => play7thChord({ id: 'minor4' })}>Cmin7</Card>
+          <Card onClick={() => play7thChord({ id: 'diminished1' })}>Bº7<br/>(Diminished)</Card>
+          <Card onClick={() => play7thChord({ id: 'diminished2' })}>Gº7<br/>(Diminished)</Card>
+          <Card onClick={() => play7thChord({ id: 'augmented1' })}>C+7<br/>(Augmented)</Card>
+          <Card onClick={() => play7thChord({ id: 'augmented2' })}>F+7<br/>(Augmented)</Card>
         </CardGrid>
       </Page>
     );
