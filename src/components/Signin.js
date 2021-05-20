@@ -4,6 +4,7 @@ import 'firebase/auth';
 import firebase from 'firebase/app';
 import firebaseApp from './../firebase';
 import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class Signin extends Component {
   render() {
@@ -16,7 +17,7 @@ class Signin extends Component {
     return (
       <>
         { user ?
-        <Nav.Link onClick={signOut}>Sign out</Nav.Link> :
+        <Nav.Link><Link onClick={signOut} to="/home" style={{color: '#ffffff', textDecoration: 'none'}}>Sign out</Link></Nav.Link> :
         <Nav.Link onClick={signInWithGoogle}>Sign in with Google</Nav.Link>}
       </>
     )
