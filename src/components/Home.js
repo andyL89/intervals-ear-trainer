@@ -9,7 +9,7 @@ const Blurb = styled.div`
   align-items: center;
   margin: auto;
   text-align: center;
-  padding-top: 4vw;
+  padding-top: 3vw;
   width: 40vw;
   p {
     margin-top: 1vw;

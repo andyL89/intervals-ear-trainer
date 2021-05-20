@@ -1,5 +1,5 @@
 # _Intervals Ear Trainer_
-A React web app for studying musical intervals.
+A React web app for studying musical intervals and chords.
 
 ### _**Andy Lawson**_
 
@@ -12,19 +12,20 @@ A React web app for studying musical intervals.
 
 ## Technologies Used
 
-* _JSX_
 * _React_
+* _JSX_
+* _useSound hook_
 * _Firebase_
-* _SASS_
+* _styled-components_
 * _draw.io_
-* _git 2.30.0_
+* _git_
 
 ---
 
 ## User Stories
 
-* As a user, I want to hear a specific interval when I click a flash card.
-* As a user I want to test my skills by taking a multiple choice quiz with random intervals.
+* As a user, I want to hear a specific interval, triad, or 7th chord when I click a flash card.
+* As a user I want to test my skills by taking a multiple choice quiz with different intervals and chords.
 
 ## Component Diagram
 Diagram showing parent and children components and how they will be structured in relation to one another:
@@ -45,14 +46,6 @@ Diagram showing parent and children components and how they will be structured i
 * To use Visual Studio Code to edit this project, follow install instructions [here](https://code.visualstudio.com/).
 * To enable command `code`, open VS Code, click on View > Command Palette, type in "shell command", and click on "Shell Command: Install 'code' command in PATH"
 * Now, from your terminal, in the project's top level directory, you can run command `code .` to open project in VS Code.
-
----
-
-## Progress
-* Created initial component diagram.
-* Began building project skeleton and initial routing.
-* Setup Signin/ Signout with Firebase.
-* Applied basic grid styling for flash cards.
 
 ---
 
