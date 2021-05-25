@@ -110,6 +110,7 @@ const Question = styled.div`
   align-items: center;
   padding: 20px;
   width: 40vw;
+  transition: .3s;
   button {
     margin-top: 1vw;
   }
@@ -300,6 +301,12 @@ const Quiz = () => {
     let id = e.target.getAttribute('data_id');
     if (id === correct) {
       setPlayerScore( currentPlayerScore => currentPlayerScore + 1 );
+      const toggleCorrect = document.getElementById('question');
+      toggleCorrect.style.backgroundColor = 'rgba(0, 204, 0, .1)';
+    }
+    if (id !== correct) {
+      const toggleCorrect = document.getElementById('question');
+      toggleCorrect.style.backgroundColor = 'rgba(255, 0, 0, .1)';
     }
     if (questionNum < totalQuestions) {
       loadNewQuestion();
@@ -310,11 +317,17 @@ const Quiz = () => {
 
   const gameOver = () => {
     setQuizReset(true);
+    const toggleCorrect = document.getElementById('question');
+    if (playerScore > 8) {
+      toggleCorrect.style.backgroundColor = 'rgba(0, 204, 0, .1)';
+    } else {
+      toggleCorrect.style.backgroundColor = 'rgba(255, 255, 255, .6)';
+    }
   }
 
   if (user) {
     return (
-      <QuestionCard>
+      <QuestionCard id='questionCard'>
         <QuizChoice id='quizButtons'>
           <QuizCard>
             <p>Practice identifying intervals with this quick quiz!</p>
@@ -360,7 +373,7 @@ const Quiz = () => {
           </>
         }
         {startInterval || startBeginnerChord || startSeventhChord ? (
-          <Question>
+          <Question id="question">
             {!quizReset ? (
               <>
                 <h3 className='quiz-question-number'>
@@ -409,7 +422,7 @@ const Quiz = () => {
                 <>
                   <div className='quiz-player-score'>
                     <h1>
-                      Final Score - {playerScore} /{' '}
+                      Final Score: {playerScore} /{' '}
                       {totalQuestions}
                     </h1>
                     <hr></hr>
