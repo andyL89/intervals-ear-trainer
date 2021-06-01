@@ -9,8 +9,7 @@ function Header() {
       <Navbar.Brand href="/home" style={{fontWeight: '700', padding: '0px 20px'}}>Intervals Ear Training</Navbar.Brand>
       <Nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#ffffff', fontWeight: '600', padding: '0px 20px'}}>
         <Nav.Link><Link style={{color: '#ffffff', textDecoration: 'none'}} id="quiz" to="/quiz">Quizzes</Link></Nav.Link>
-        <Nav.Link><Link style={{color: '#ffffff', textDecoration: 'none'}} id="cards" to="/cards">Flash Cards</Link></Nav.Link>
-        <Nav.Link><Link style={{color: '#ffffff', textDecoration: 'none'}} id="cardGrid" to="/cardGrid">New Flash Cards</Link></Nav.Link>
+        <Nav.Link><Link style={{color: '#ffffff', textDecoration: 'none'}} id="cardGrid" to="/cardGrid">Flash Cards</Link></Nav.Link>
         <Nav.Link><Signin /></Nav.Link>
       </Nav>
     </Navbar>
